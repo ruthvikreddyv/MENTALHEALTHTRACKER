@@ -1,0 +1,40 @@
+def mental_health_check():
+    print("Welcome to the Mental Health Check. Please answer the following questions:")
+    
+    questions = [
+        "1. Over the last two weeks, how often have you felt little interest or pleasure in doing things? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "2. How often have you felt down, depressed, or hopeless? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "3. How often have you had trouble sleeping (too much or too little)? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "4. How often have you felt tired or had little energy? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "5. How often have you felt bad about yourself (or that you are a failure or have let yourself or your family down)? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "6. How often have you had trouble concentrating on things, such as reading the newspaper or watching television? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "7. How often have you felt anxious or worried? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "8. How often have you felt restless or unable to sit still? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "9. How often have you experienced feelings of worthlessness? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)",
+        "10. How often have you thought about hurting yourself or others? (0: Not at all, 1: Several days, 2: More than half the days, 3: Nearly every day)"
+    ]
+
+    total_score = 0
+
+    for question in questions:
+        while True:
+            try:
+                answer = int(input(question + "\nYour answer (0-3): "))
+                if answer in [0, 1, 2, 3]:
+                    total_score += answer
+                    break
+                else:
+                    print("Please enter a valid number (0-3).")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
+    print("\nYour total score is:", total_score)
+
+    if total_score <= 10:
+        print("You seem to be doing well. Keep taking care of your mental health!")
+    elif 11 <= total_score <= 20:
+        print("You might be experiencing some challenges. Consider talking to someone about how you're feeling.")
+    else:
+        print("It's important to seek help. Please consider reaching out to a mental health professional.")
+
+mental_health_check()
